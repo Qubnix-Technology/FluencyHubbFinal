@@ -1,0 +1,282 @@
+/* Contact.css */
+
+.company-details-list li,.contact-details-list li {
+  line-height:1.5;
+}
+
+.company-details-list strong,.contact-details-list strong {
+  color:#fff;
+}
+
+.ltc-roadmap {
+  display:flex;
+  justify-content:space-between;
+  position:relative;
+  margin-top:80px;
+  padding:0 20px;
+}
+
+.ltc-roadmap:before {
+  content:"";
+  position:absolute;
+  top:40px;
+  left:50px;
+  right:50px;
+  height:4px;
+  background:var(--ltc-gray-light);
+  z-index:1;
+}
+
+.ltc-roadmap-phase {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  width:180px;
+}
+
+.ltc-roadmap-phase:hover .ltc-phase-num {
+  background:var(--ltc-primary);
+  color:#fff;
+  transform:scale(1.15) rotate(8deg);
+  animation:pulseGlow 1.2s infinite;
+}
+
+.ltc-roadmap-phase:hover .ltc-phase-title {
+  color:var(--ltc-primary);
+}
+
+.ltc-roadmap {
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+}
+
+.ltc-roadmap:before {
+  inset:0 auto 0 50%;
+  width:4px;
+  height:auto;
+  transform:translate(-50%);
+}
+
+.ltc-roadmap-phase {
+  width:100%;
+}
+
+.ft-roadmap-section {
+  padding:100px 20px;
+  background:var(--ft-secondary);
+}
+
+.ft-roadmap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+  max-width:600px;
+  margin:0 auto;
+}
+
+.law-gov-roadmap-section {
+  padding:80px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-roadmap {
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+}
+
+.roadmap-step {
+  padding:20px 30px;
+  background:#fff;
+  border-radius:var(--law-radius-md);
+  margin-bottom:20px;
+  box-shadow:var(--law-shadow-sm);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:1.1rem;
+  font-weight:600;
+  border-left:4px solid var(--law-primary);
+}
+
+.roadmap-step span {
+  width:30px;
+  height:30px;
+  background:var(--law-primary);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-weight:800;
+  font-size:.9rem;
+}
+
+.roadmap-step.final {
+  background:var(--law-gradient-gold);
+  color:#fff;
+  border-left:none;
+}
+
+.roadmap-step.final span {
+  background:#fff;
+  color:var(--law-secondary);
+}
+
+.roadmap-connector {
+  text-align:center;
+  font-size:1.5rem;
+  color:var(--law-primary);
+  margin-bottom:20px;
+  opacity:.5;
+}
+
+.re-roadmap-section {
+  padding:80px 0;
+  background:var(--re-bg-light);
+}
+
+.re-roadmap {
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+}
+
+.roadmap-step {
+  padding:20px 30px;
+  background:#fff;
+  border-radius:var(--re-radius-md);
+  margin-bottom:20px;
+  box-shadow:var(--re-shadow-sm);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:1.1rem;
+  font-weight:600;
+  border-left:4px solid var(--re-secondary);
+  transition:all .3s ease;
+}
+
+.roadmap-step:hover {
+  transform:translate(10px);
+  box-shadow:var(--re-shadow-md);
+}
+
+.roadmap-step span {
+  width:30px;
+  height:30px;
+  background:var(--re-secondary);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-weight:800;
+  font-size:.9rem;
+}
+
+.roadmap-step.final {
+  background:var(--re-gradient-gold);
+  color:#fff;
+  border-left:none;
+}
+
+.roadmap-step.final span {
+  background:#fff;
+  color:var(--re-primary);
+}
+
+.roadmap-connector {
+  text-align:center;
+  font-size:1.5rem;
+  color:var(--re-secondary);
+  margin-bottom:20px;
+  opacity:.5;
+}
+
+.contact-page {
+  background-color:#f8fafc;
+}
+
+.contact-hero {
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  padding:120px 0;
+  margin-bottom:2rem;
+}
+
+.contact-hero-overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(#192a3dcc,#1559edcc);
+  z-index:1;
+}
+
+.contact-title {
+  font-size:3.5rem;
+  font-weight:800;
+  text-shadow:0 4px 6px rgba(0,0,0,.3);
+}
+
+.contact-subtitle {
+  font-size:1.2rem;
+  max-width:600px;
+  margin:0 auto;
+}
+
+.contact-icon-wrapper {
+  background-color:#1559ed1a;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.contact-input {
+  border:1px solid #ced4da;
+  border-radius:8px;
+  padding:12px 16px;
+  transition:border-color .3s ease,box-shadow .3s ease;
+}
+
+.contact-input:focus {
+  border-color:#1559ed;
+  box-shadow:0 0 0 .2rem #1559ed40;
+}
+
+.contact-submit-btn {
+  background:linear-gradient(135deg,#1559ed,#0e3d9e);
+  border:none;
+  border-radius:8px;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.contact-submit-btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 4px 15px #1559ed66;
+}
+
+.contact-hero {
+  padding:80px 0;
+}
+
+.contact-title {
+  font-size:2.5rem;
+}
+
+.enquiry-contact {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  color:#475569;
+  font-size:.85rem;
+}

@@ -1,0 +1,253 @@
+/* CSS/Courses/DesignCreativeSkills.css */
+
+.designed-by {
+  font-size:.9rem;
+}
+
+.designed-by a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:color .3s ease;
+}
+
+.designed-by a:hover {
+  color:#1559ed;
+}
+
+.teacher-designation {
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--yellow-accent, #ffb800);
+  margin-bottom:25px;
+}
+
+.design-skills-page {
+  font-family:Poppins,sans-serif;
+  color:var(--text-dark);
+  overflow-x:hidden;
+}
+
+.text-primary-creative {
+  color:var(--primary-creative);
+}
+
+.bg-gradient-creative {
+  background:var(--gradient-creative);
+}
+
+.border-top-creative {
+  border-top:5px solid var(--primary-creative);
+}
+
+.hero-buttons .btn-primary-creative {
+  background:var(--gradient-creative);
+  color:#fff;
+  border:none;
+  padding:12px 28px;
+  border-radius:30px;
+  font-weight:600;
+  margin-right:15px;
+  transition:transform .3s,box-shadow .3s;
+  box-shadow:0 4px 15px #8a2be266;
+}
+
+.hero-buttons .btn-primary-creative:hover {
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px #8a2be299;
+}
+
+.hero-buttons .btn-outline-creative {
+  background:transparent;
+  color:#fff;
+  border:2px solid white;
+  padding:10px 28px;
+  border-radius:30px;
+  font-weight:600;
+  margin-right:15px;
+  transition:all .3s;
+}
+
+.hero-buttons .btn-outline-creative:hover {
+  background:#fff;
+  color:var(--dark-bg);
+}
+
+.creative-marquee-container {
+  overflow:hidden;
+  position:relative;
+  width:100%;
+  padding:10px 0;
+}
+
+.creative-marquee-content {
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:scrollMarquee 30s linear infinite;
+}
+
+.creative-marquee-container:hover .creative-marquee-content {
+  animation-play-state:paused;
+}
+
+.creative-timeline {
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+}
+
+.creative-timeline:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:var(--primary-creative);
+  transform:translate(-50%);
+  border-radius:4px;
+}
+
+.creative-timeline-step {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.creative-timeline-step:nth-child(2n) {
+  flex-direction:row-reverse;
+}
+
+.creative-timeline-content {
+  width:45%;
+  background:#fff;
+  padding:25px 30px;
+  border-radius:24px;
+  box-shadow:0 12px 25px #8a2be21f;
+  font-weight:800;
+  color:var(--primary-creative);
+  transition:all .3s cubic-bezier(.175,.885,.32,1.275);
+  font-size:1.15rem;
+  text-align:center;
+  border:3px solid transparent;
+}
+
+.creative-timeline-step:nth-child(2n) .creative-timeline-content {
+  color:var(--secondary-creative);
+}
+
+.creative-timeline-step:hover .creative-timeline-content {
+  transform:scale(1.1);
+  box-shadow:0 20px 40px #8a2be226;
+  border-color:var(--tertiary-creative);
+}
+
+.creative-timeline-dot {
+  width:28px;
+  height:28px;
+  background:var(--tertiary-creative);
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%);
+  border:6px solid white;
+  box-shadow:0 0 10px #0000001a;
+  z-index:2;
+}
+
+.creative-faq-container {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.creative-faq-item {
+  background:#fff;
+  border-radius:16px;
+  margin-bottom:15px;
+  overflow:hidden;
+  transition:all .3s ease;
+  border:2px solid transparent;
+}
+
+.creative-faq-item:hover {
+  border-color:#8a2be233;
+}
+
+.creative-faq-item.open {
+  background:#fff;
+  box-shadow:0 4px 10px #8a2be214;
+  border-color:var(--primary-creative);
+}
+
+.creative-faq-question {
+  padding:25px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  font-weight:700;
+  color:var(--text-dark);
+  font-size:1.15rem;
+}
+
+.creative-faq-icon {
+  color:var(--primary-creative);
+  transition:transform .3s cubic-bezier(.175,.885,.32,1.275);
+}
+
+.creative-faq-item.open .creative-faq-icon {
+  transform:rotate(180deg);
+  color:var(--secondary-creative);
+}
+
+.creative-faq-answer {
+  padding:0 30px;
+  max-height:0;
+  overflow:hidden;
+  transition:all .4s ease;
+}
+
+.creative-faq-item.open .creative-faq-answer {
+  padding:0 30px 25px;
+  max-height:200px;
+}
+
+.creative-faq-answer p {
+  margin:0;
+  font-weight:500;
+}
+
+.center-graphic {
+  width:250px;
+  height:250px;
+}
+
+.creative-timeline:before {
+  left:40px;
+}
+
+.creative-timeline-step {
+  flex-direction:column!important;
+  align-items:flex-start;
+  padding-left:80px;
+}
+
+.creative-timeline-content {
+  width:100%;
+  text-align:left;
+}
+
+.creative-timeline-dot {
+  left:40px;
+}
+
+.creative-hero {
+  padding:120px 20px 60px;
+}
+
+.about-program,.learning-areas,.career-paths,.tools-section,.learning-formats,.learning-journey,.success-metrics,.creative-faq,.creative-cta {
+  padding:60px 15px!important;
+}

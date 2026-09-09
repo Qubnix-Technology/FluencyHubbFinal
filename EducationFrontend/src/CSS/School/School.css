@@ -1,0 +1,316 @@
+/* CSS/School/School.css */
+
+.schools-section {
+  padding:100px 20px;
+  background:#fff;
+}
+
+.schools-grid {
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.school-card {
+  background:#fff;
+  padding:30px 20px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 4px 20px #0000000a;
+  border:1px solid #E5E7EB;
+  transition:all .4s cubic-bezier(.175,.885,.32,1.275);
+  cursor:pointer;
+}
+
+.school-card:hover {
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 20px 50px #00000014;
+  border-color:var(--school-color, #0D6EFD);
+}
+
+.school-card-icon {
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6rem;
+  margin:0 auto 15px;
+  transition:all .4s ease;
+}
+
+.school-card:hover .school-card-icon {
+  transform:scale(1.1) rotate(-5deg);
+}
+
+.school-card h4 {
+  font-size:.9rem;
+  font-weight:600;
+  color:#0a2a5e;
+  line-height:1.3;
+  margin:0;
+}
+
+.who-section,.mission-vision-section,.philosophy-section,.leadership-section,.schools-section {
+  padding:60px 15px;
+}
+
+.schools-grid {
+  grid-template-columns:repeat(2,1fr);
+}
+
+.schools-grid,.why-choose-grid {
+  grid-template-columns:1fr;
+}
+
+.schools-page-wrapper {
+  font-family:Outfit,Inter,sans-serif;
+  background-color:#fcfdfd;
+  min-height:100vh;
+  padding-bottom:80px;
+}
+
+.schools-hero {
+  padding:160px 20px 110px;
+  background-image:url(/assets/schools-banner-BZ38do21.png);
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.schools-hero:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,#0a2a5ebf,#0a2a5ee6);
+  z-index:1;
+}
+
+.schools-hero-content {
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  margin:0 auto;
+  animation:slideUpFade .8s ease-out forwards;
+}
+
+.schools-badge {
+  display:inline-block;
+  background:#ffffff26;
+  color:#fff;
+  -webkit-backdrop-filter:blur(5px);
+  backdrop-filter:blur(5px);
+  border:1px solid rgba(255,255,255,.3);
+  padding:8px 20px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:.95rem;
+  margin-bottom:20px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.schools-hero h1 {
+  font-size:3.5rem;
+  font-weight:900;
+  color:#fff;
+  margin-bottom:25px;
+  line-height:1.2;
+  text-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+.schools-hero p {
+  font-size:1.2rem;
+  color:#e5e7eb;
+  line-height:1.7;
+  text-shadow:0 2px 5px rgba(0,0,0,.3);
+}
+
+.schools-grid-section {
+  padding:20px;
+}
+
+.schools-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+  gap:30px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.school-card {
+  background:#fff;
+  border-radius:var(--school-radius-lg);
+  padding:35px;
+  border:1px solid rgba(0,0,0,.04);
+  box-shadow:var(--school-shadow-md);
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:all .4s cubic-bezier(.175,.885,.32,1.275);
+  animation:slideUpFade .8s ease-out forwards;
+  opacity:0;
+  transform:translateY(30px);
+  z-index:1;
+}
+
+.school-card:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6px;
+  background:var(--school-gradient-blue);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+
+.school-card:hover {
+  transform:translateY(-12px);
+  box-shadow:var(--school-shadow-hover);
+  border-color:#0d6efd1a;
+}
+
+.school-card:hover:before {
+  opacity:1;
+}
+
+.school-card-icon {
+  width:65px;
+  height:65px;
+  border-radius:var(--school-radius-md);
+  background:#0d6efd14;
+  color:var(--school-primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  margin-bottom:25px;
+  transition:all .4s ease;
+}
+
+.school-card:hover .school-card-icon {
+  background:var(--school-primary);
+  color:#fff;
+  transform:scale(1.1) rotate(-5deg);
+  box-shadow:0 10px 20px #0d6efd33;
+}
+
+.school-card-content {
+  flex-grow:1;
+}
+
+.school-card h3 {
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--school-secondary);
+  margin-bottom:15px;
+  line-height:1.3;
+  transition:color .3s ease;
+}
+
+.school-card:hover h3 {
+  color:var(--school-primary);
+}
+
+.school-card p {
+  font-size:1rem;
+  color:var(--school-text-gray);
+  line-height:1.6;
+  margin-bottom:30px;
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.school-card-footer {
+  margin-top:auto;
+  padding-top:20px;
+  border-top:1px solid rgba(0,0,0,.05);
+}
+
+.school-card:hover .explore-btn {
+  color:var(--school-primary);
+}
+
+.school-card:hover .arrow-icon {
+  transform:translate(8px);
+}
+
+.schools-grid {
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+}
+
+.schools-hero {
+  padding:100px 20px 60px;
+}
+
+.schools-hero h1 {
+  font-size:2.5rem;
+}
+
+.schools-grid {
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+.school-card {
+  padding:30px 25px;
+}
+
+.school-meta {
+  margin-bottom:15px;
+}
+
+.school-card-icon {
+  width:60px;
+  height:60px;
+  background:#0d6efd0d;
+  color:var(--school-secondary, #0d6efd);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:25px;
+}
+
+.guse-schools-section {
+  padding:100px 20px;
+}
+
+.guse-schools-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.guse-school-card {
+  background:#fff;
+  padding:30px;
+  border-radius:var(--guse-radius-md);
+  box-shadow:var(--guse-shadow-md);
+  border:1px solid #E2E8F0;
+  transition:all .3s ease;
+  text-align:center;
+  font-weight:700;
+  color:var(--guse-primary);
+}
+
+.guse-school-card:hover {
+  border-color:var(--guse-secondary);
+  box-shadow:var(--guse-shadow-hover);
+  transform:translateY(-5px);
+}

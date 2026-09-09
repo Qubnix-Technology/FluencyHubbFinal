@@ -1,0 +1,1210 @@
+/* Zoom Meeting Live Classes Section CSS */
+.zoom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: inherit;
+  color: #1e293b;
+}
+
+/* Header */
+.zoom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.zoom-header-main h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zoom-header-main p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #64748b;
+}
+
+.zoom-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.zoom-portal-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.zoom-time-chip {
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.zoom-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zoom-schedule-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  transition: all 0.2s ease;
+}
+
+.zoom-schedule-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.38);
+}
+
+.zoom-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zoom-refresh-btn:hover {
+  background: #e2e8f0;
+}
+
+.zoom-refresh-btn.spinning svg {
+  animation: zoom-spin 0.8s linear infinite;
+}
+
+@keyframes zoom-spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Tabs & Filter Bar */
+.zoom-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+}
+
+.zoom-status-tabs {
+  display: flex;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  gap: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.zoom-status-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.zoom-status-tab-btn:hover {
+  color: #0f172a;
+}
+
+.zoom-status-tab-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+.tab-badge {
+  font-size: 0.75rem;
+  background: rgba(148, 163, 184, 0.2);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.zoom-status-tab-btn.active .tab-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Meeting Cards Grid */
+.zoom-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.zoom-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.zoom-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.zoom-card.status-live {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px #22c55e, 0 8px 24px rgba(34, 197, 94, 0.12);
+}
+
+.zoom-card.status-cancelled {
+  border-color: #fca5a5;
+  background: #fffcfc;
+}
+
+.zoom-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.zoom-card-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.zoom-card-status-badge.live {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.zoom-card-status-badge.live .pulse-ring {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: zoom-pulse 1.4s infinite;
+}
+
+@keyframes zoom-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.zoom-card-status-badge.scheduled {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.zoom-card-status-badge.completed {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.zoom-card-status-badge.cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.zoom-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zoom-icon-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-icon-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.zoom-icon-btn.danger:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.zoom-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.zoom-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.zoom-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #475569;
+}
+
+.zoom-meta-item svg {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.zoom-meta-item strong {
+  color: #1e293b;
+}
+
+/* Teacher chip */
+.zoom-teacher-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.zoom-teacher-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+
+.zoom-teacher-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-teacher-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.zoom-teacher-title {
+  font-size: 0.74rem;
+  color: #64748b;
+}
+
+/* Students roster summary */
+.zoom-students-roster {
+  margin-bottom: 16px;
+}
+
+.roster-toggle-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.roster-toggle-btn:hover {
+  text-decoration: underline;
+}
+
+.roster-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.student-tag {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1e40af;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* Class Note / Instructions */
+.zoom-card-note {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #6366f1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+}
+
+.zoom-note-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.zoom-note-text {
+  margin: 0;
+  font-size: 0.84rem;
+  color: #334155;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Cancelled reason banner */
+.zoom-cancelled-banner {
+  background: #fee2e2;
+  border-left: 3px solid #ef4444;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #991b1b;
+  margin-bottom: 14px;
+}
+
+/* Join & Actions Row */
+.zoom-card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zoom-join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.zoom-join-btn:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.zoom-join-btn.live {
+  background: #16a34a;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+  animation: zoom-pulse-button 2s infinite;
+}
+
+@keyframes zoom-pulse-button {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.zoom-join-btn.live:hover {
+  background: #15803d;
+}
+
+.zoom-join-btn.completed {
+  background: #64748b;
+  box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2);
+}
+
+.zoom-join-btn.completed:hover {
+  background: #475569;
+}
+
+/* Status modifier toolbar for Admin */
+.zoom-status-changer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: #f8fafc;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.status-change-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.status-btn-group {
+  display: flex;
+  gap: 4px;
+}
+
+.status-pill-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.status-pill-btn.btn-live {
+  background: #dcfce7;
+  color: #166534;
+}
+.status-pill-btn.btn-live:hover {
+  background: #bbf7d0;
+}
+
+.status-pill-btn.btn-complete {
+  background: #e2e8f0;
+  color: #334155;
+}
+.status-pill-btn.btn-complete:hover {
+  background: #cbd5e1;
+}
+
+.status-pill-btn.btn-cancel {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.status-pill-btn.btn-cancel:hover {
+  background: #fecaca;
+}
+
+.status-pill-btn.btn-schedule {
+  background: #eff6ff;
+  color: #1e40af;
+}
+.status-pill-btn.btn-schedule:hover {
+  background: #dbeafe;
+}
+
+/* Empty State */
+.zoom-empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px dashed #cbd5e1;
+}
+
+.zoom-empty-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.zoom-empty-state h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.zoom-empty-state p {
+  color: #64748b;
+  font-size: 0.9rem;
+  max-width: 440px;
+  margin: 0 auto 18px auto;
+}
+
+/* Modal Form Styles */
+.zoom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.zoom-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.zoom-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zoom-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #64748b;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.zoom-modal-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.zoom-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.zoom-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zoom-form-group label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zoom-form-group input,
+.zoom-form-group select,
+.zoom-form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.zoom-form-group input:focus,
+.zoom-form-group select:focus,
+.zoom-form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Student selection box */
+.zoom-students-picker {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 12px;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.student-checkbox-item:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.student-checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.student-checkbox-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.student-checkbox-course {
+  font-size: 0.76rem;
+  color: #64748b;
+  margin-left: auto;
+}
+
+.select-all-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.select-all-btn:hover {
+  text-decoration: underline;
+}
+
+.zoom-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 0 0 20px 20px;
+}
+
+.zoom-cancel-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+}
+
+.zoom-submit-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.zoom-submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.zoom-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Attractive Custom Teacher Dropdown & Modern Scrollbar */
+.zoom-custom-dropdown-group {
+  position: relative;
+}
+
+.zoom-custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.zoom-custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  text-align: left;
+}
+
+.zoom-custom-select-trigger:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.zoom-custom-select-trigger.open {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
+}
+
+.zoom-select-label-wrap {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zoom-select-placeholder {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.zoom-selected-teacher-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.zoom-teacher-avatar-mini {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.zoom-teacher-avatar-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-selected-name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.92rem;
+}
+
+.zoom-selected-spec {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.zoom-select-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.zoom-select-clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-select-clear-btn:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.zoom-select-arrow {
+  color: #64748b;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.zoom-select-arrow.rotated {
+  transform: rotate(180deg);
+  color: #2563eb;
+}
+
+/* Dropdown Menu Container */
+.zoom-custom-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16), 0 4px 10px rgba(15, 23, 42, 0.06);
+  z-index: 1000;
+  overflow: hidden;
+  animation: zoom-fade-down 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes zoom-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Box inside dropdown */
+.zoom-dropdown-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #f8fafc;
+}
+
+.zoom-dropdown-search-box svg {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.zoom-dropdown-search-box input {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 4px 0 !important;
+  font-size: 0.88rem !important;
+  color: #0f172a !important;
+}
+
+.zoom-dropdown-search-box input:focus {
+  outline: none !important;
+}
+
+.zoom-search-clear-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.zoom-search-clear-btn:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+/* Dropdown Items List */
+.zoom-custom-dropdown-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zoom-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-dropdown-item:hover {
+  background: #eff6ff;
+}
+
+.zoom-dropdown-item.selected {
+  background: #dbeafe;
+}
+
+.zoom-dropdown-item-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #1e293b;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.zoom-dropdown-item-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-dropdown-item.selected .zoom-dropdown-item-avatar {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.zoom-dropdown-item-reset {
+  border-bottom: 1px dashed #e2e8f0;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+}
+
+.zoom-dropdown-item-avatar.zoom-avatar-placeholder {
+  background: #f1f5f9;
+  color: #94a3b8;
+  font-size: 0.72rem;
+}
+
+.zoom-dropdown-item-reset.selected .zoom-avatar-placeholder {
+  background: #cbd5e1;
+  color: #334155;
+}
+
+.zoom-dropdown-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.zoom-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zoom-item-spec {
+  font-size: 0.76rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zoom-item-check {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.zoom-dropdown-empty {
+  padding: 18px 12px;
+  text-align: center;
+  font-size: 0.86rem;
+  color: #94a3b8;
+}
+
+/* Custom Attractive Modern Scrollbar */
+.custom-scrollbar::-webkit-scrollbar,
+.zoom-modal::-webkit-scrollbar,
+.zoom-students-picker::-webkit-scrollbar,
+.roster-tags-wrap::-webkit-scrollbar,
+.zoom-status-tabs::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.zoom-modal::-webkit-scrollbar-track,
+.zoom-students-picker::-webkit-scrollbar-track,
+.roster-tags-wrap::-webkit-scrollbar-track,
+.zoom-status-tabs::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.zoom-modal::-webkit-scrollbar-thumb,
+.zoom-students-picker::-webkit-scrollbar-thumb,
+.roster-tags-wrap::-webkit-scrollbar-thumb,
+.zoom-status-tabs::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+.zoom-modal::-webkit-scrollbar-thumb:hover,
+.zoom-students-picker::-webkit-scrollbar-thumb:hover,
+.roster-tags-wrap::-webkit-scrollbar-thumb:hover,
+.zoom-status-tabs::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox scrollbar support */
+.custom-scrollbar,
+.zoom-modal,
+.zoom-students-picker,
+.roster-tags-wrap,
+.zoom-status-tabs {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .zoom-form-row {
+    grid-template-columns: 1fr;
+  }
+  .zoom-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .zoom-status-tabs {
+    width: 100%;
+    padding-bottom: 6px;
+  }
+  .zoom-status-tab-btn {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+}

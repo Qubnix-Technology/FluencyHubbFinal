@@ -1,0 +1,585 @@
+/* CSS/Courses/MindsetPeakPerformance.css */
+
+.leadership-section {
+  padding:100px 20px;
+  background:#f8f9fa;
+  position:relative;
+  overflow:hidden;
+}
+
+.leadership-section .section-title {
+  color:#0a2a5e!important;
+}
+
+.leadership-bg-blob {
+  position:absolute;
+  bottom:-150px;
+  left:-100px;
+  width:380px;
+  height:380px;
+  background:radial-gradient(circle,rgba(255,122,0,.08),transparent 70%);
+  border-radius:50%;
+  filter:blur(40px);
+  pointer-events:none;
+}
+
+.leadership-grid {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.who-section,.mission-vision-section,.philosophy-section,.leadership-section,.schools-section {
+  padding:60px 15px;
+}
+
+.leadership-grid {
+  grid-template-columns:1fr;
+  gap:25px;
+}
+
+.mindset-page {
+  font-family:Poppins,sans-serif;
+  color:var(--mindset-text);
+  overflow-x:hidden;
+}
+
+.mindset-hero {
+  padding:140px 20px 80px;
+  background:var(--mindset-primary);
+  background-image:radial-gradient(circle at top right,rgba(0,86,179,.5),transparent 60%);
+  color:#fff;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+}
+
+.mindset-hero-container {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.mindset-badge {
+  display:inline-block;
+  padding:8px 20px;
+  background:#ffffff1a;
+  border:1px solid rgba(212,175,55,.5);
+  border-radius:50px;
+  color:var(--mindset-gold);
+  font-weight:600;
+  margin-bottom:25px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.mindset-hero-content h1 {
+  font-size:3.5rem;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+.mindset-hero-content p {
+  font-size:1.1rem;
+  line-height:1.6;
+  opacity:.9;
+  margin-bottom:20px;
+}
+
+.mindset-hero-buttons {
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.mindset-btn-primary,.mindset-btn-secondary,.mindset-btn-tertiary,.mindset-btn-outline {
+  padding:12px 25px;
+  border-radius:50px;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .3s ease;
+  cursor:pointer;
+  border:none;
+  display:inline-block;
+}
+
+.mindset-btn-primary {
+  background:var(--mindset-gold);
+  color:var(--mindset-primary);
+}
+
+.mindset-btn-primary:hover {
+  background:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 5px 15px #fff3;
+  color:var(--mindset-primary);
+}
+
+.mindset-btn-secondary {
+  background:transparent;
+  color:#fff;
+  border:2px solid white;
+}
+
+.mindset-btn-secondary:hover {
+  background:#fff;
+  color:var(--mindset-primary);
+  transform:translateY(-3px);
+}
+
+.mindset-btn-tertiary {
+  background:#25d366;
+  color:#fff;
+}
+
+.mindset-btn-tertiary:hover {
+  background:#1ebe5d;
+  transform:translateY(-3px);
+  color:#fff;
+}
+
+.mindset-btn-outline {
+  background:transparent;
+  border:2px solid var(--mindset-gold);
+  color:var(--mindset-gold);
+}
+
+.mindset-btn-outline:hover {
+  background:var(--mindset-gold);
+  color:var(--mindset-primary);
+}
+
+.mindset-hero-img-container img {
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 20px 40px #0000004d;
+  border:4px solid rgba(255,255,255,.1);
+  transform:perspective(1000px) rotateY(-5deg);
+  transition:transform .5s ease;
+}
+
+.mindset-hero-img-container:hover img {
+  transform:perspective(1000px) rotateY(0);
+}
+
+.mindset-highlights-section {
+  background:#fff;
+  padding:20px 0;
+  border-bottom:2px solid #E5E7EB;
+  overflow:hidden;
+}
+
+.mindset-marquee-container {
+  overflow:hidden;
+  position:relative;
+  width:100%;
+}
+
+.mindset-marquee-content {
+  display:flex;
+  gap:30px;
+  width:max-content;
+  animation:marqueeScroll 25s linear infinite;
+}
+
+.mindset-marquee-container:hover .mindset-marquee-content {
+  animation-play-state:paused;
+}
+
+.mindset-stat-item {
+  background:var(--mindset-light);
+  padding:12px 25px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  border:1px solid rgba(0,45,98,.1);
+  white-space:nowrap;
+}
+
+.mindset-stat-icon {
+  font-size:1.5rem;
+  color:var(--mindset-gold);
+}
+
+.mindset-stat-item span {
+  font-weight:700;
+  color:var(--mindset-primary);
+}
+
+.mindset-about-section,.mindset-modules-section,.mindset-areas-section,.mindset-choose-formats-section,.mindset-benefits-section,.mindset-who-section,.mindset-journey-section,.mindset-student-benefits,.mindset-promise-section,.mindset-cta-section,.mindset-related-section,.mindset-faq-section {
+  padding:80px 20px;
+}
+
+.mindset-section-header h2 {
+  font-size:2.5rem;
+  font-weight:800;
+  color:var(--mindset-primary);
+  margin-bottom:15px;
+}
+
+.mindset-title-underline {
+  height:4px;
+  width:80px;
+  background:var(--mindset-gold);
+  margin-bottom:30px;
+  border-radius:2px;
+}
+
+.mindset-modules-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.mindset-module-card {
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 20px #0000000d;
+  border-top:4px solid var(--mindset-gold);
+  transition:all .4s ease;
+}
+
+.mindset-module-card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 15px 30px #002d6226;
+}
+
+.mindset-module-icon {
+  font-size:2.5rem;
+  color:var(--mindset-secondary);
+  margin-bottom:20px;
+}
+
+.mindset-module-card h3 {
+  font-size:1.4rem;
+  color:var(--mindset-primary);
+  margin-bottom:15px;
+}
+
+.mindset-expandable-content {
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:all .5s ease;
+}
+
+.mindset-module-card.expanded .mindset-expandable-content {
+  max-height:500px;
+  opacity:1;
+  margin-top:15px;
+}
+
+.mindset-learn-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:10px;
+}
+
+.mindset-learn-item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:.95rem;
+  color:#555;
+}
+
+.mindset-areas-section {
+  background:var(--mindset-primary);
+  background-image:radial-gradient(circle at center,rgba(212,175,55,.1),transparent 70%);
+}
+
+.mindset-areas-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.mindset-area-card {
+  background:#ffffff1a;
+  -webkit-backdrop-filter:blur(5px);
+  backdrop-filter:blur(5px);
+  border:1px solid rgba(255,255,255,.2);
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  color:#fff;
+  transition:all .3s ease;
+}
+
+.mindset-area-card:hover {
+  background:#fff;
+  color:var(--mindset-primary);
+  transform:translateY(-5px);
+}
+
+.mindset-area-card:hover .mindset-area-icon {
+  color:var(--mindset-gold);
+}
+
+.mindset-area-icon {
+  font-size:2.5rem;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.mindset-choose-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.mindset-choose-item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  padding:15px 20px;
+  border-radius:10px;
+  box-shadow:0 2px 10px #0000000d;
+  font-weight:600;
+  color:var(--mindset-primary);
+}
+
+.mindset-check-icon {
+  color:var(--mindset-gold);
+  font-size:1.2rem;
+}
+
+.mindset-format-card {
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px #0000000d;
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+.mindset-format-icon {
+  font-size:2.5rem;
+  color:var(--mindset-secondary);
+  background:var(--mindset-light);
+  padding:15px;
+  border-radius:10px;
+}
+
+.mindset-format-card h5 {
+  color:var(--mindset-primary);
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.mindset-benefits-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+}
+
+.mindset-benefit-card {
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 4px 15px #0000000d;
+  transition:all .3s ease;
+  border:1px solid rgba(0,45,98,.05);
+}
+
+.mindset-benefit-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--mindset-gold);
+}
+
+.mindset-benefit-icon {
+  font-size:2.5rem;
+  color:var(--mindset-gold);
+  margin-bottom:15px;
+}
+
+.mindset-who-section {
+  background:var(--mindset-primary);
+}
+
+.mindset-who-tags {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+.mindset-who-tag {
+  background:#ffffff1a;
+  color:#fff;
+  padding:12px 25px;
+  border-radius:50px;
+  border:1px solid var(--mindset-gold);
+  font-weight:600;
+  transition:all .3s ease;
+}
+
+.mindset-who-tag:hover {
+  background:var(--mindset-gold);
+  color:var(--mindset-primary);
+}
+
+.mindset-journey-timeline {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+}
+
+.mindset-journey-timeline:before {
+  content:"";
+  position:absolute;
+  left:20px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:var(--mindset-gold);
+}
+
+.mindset-journey-step {
+  display:flex;
+  align-items:center;
+  gap:30px;
+  position:relative;
+}
+
+.mindset-journey-dot {
+  width:40px;
+  height:40px;
+  background:var(--mindset-gold);
+  border-radius:50%;
+  border:4px solid white;
+  z-index:1;
+  flex-shrink:0;
+}
+
+.mindset-journey-content {
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 15px #0000000d;
+  width:100%;
+}
+
+.mindset-faq-container {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.mindset-faq-item {
+  background:#fff;
+  border-radius:10px;
+  margin-bottom:15px;
+  overflow:hidden;
+  box-shadow:0 2px 10px #0000000d;
+}
+
+.mindset-faq-question {
+  padding:20px;
+  font-weight:700;
+  color:var(--mindset-primary);
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+}
+
+.mindset-faq-icon {
+  color:var(--mindset-gold);
+  transition:transform .3s ease;
+}
+
+.mindset-faq-item.open .mindset-faq-icon {
+  transform:rotate(180deg);
+}
+
+.mindset-faq-answer {
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  transition:all .4s ease;
+}
+
+.mindset-faq-item.open .mindset-faq-answer {
+  max-height:300px;
+  padding:0 20px 20px;
+}
+
+.mindset-promise-section {
+  background:var(--mindset-gradient);
+}
+
+.mindset-cta-section {
+  background:var(--mindset-primary);
+  background-image:url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23d4af37" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+}
+
+.mindset-related-link {
+  background:#fff;
+  color:var(--mindset-primary);
+  padding:15px 30px;
+  border-radius:50px;
+  font-weight:700;
+  text-decoration:none;
+  border:1px solid rgba(0,45,98,.1);
+  transition:all .3s ease;
+}
+
+.mindset-related-link:hover {
+  background:var(--mindset-gold);
+  color:var(--mindset-primary);
+  transform:translateY(-5px);
+}
+
+.mindset-hero-container {
+  display:flex;
+  flex-direction:column-reverse;
+  text-align:center;
+}
+
+.mindset-hero h1 {
+  font-size:2.5rem;
+}
+
+.mindset-hero-buttons {
+  justify-content:center;
+}
+
+.mindset-hero {
+  padding:120px 15px 60px;
+}
+
+.mindset-about-section,.mindset-modules-section,.mindset-areas-section,.mindset-choose-formats-section,.mindset-benefits-section,.mindset-who-section,.mindset-journey-section,.mindset-student-benefits,.mindset-promise-section,.mindset-cta-section,.mindset-related-section,.mindset-faq-section {
+  padding:60px 15px!important;
+}
+
+.mindset-hero h1 {
+  font-size:2rem;
+}
+
+.mindset-hero p {
+  font-size:1rem;
+}
+
+.mindset-btn-primary,.mindset-btn-secondary,.mindset-btn-tertiary,.mindset-btn-outline {
+  width:100%;
+  margin-bottom:10px;
+}
+
+.mindset-modules-grid,.mindset-areas-grid,.mindset-choose-grid,.mindset-benefits-grid {
+  grid-template-columns:1fr;
+}

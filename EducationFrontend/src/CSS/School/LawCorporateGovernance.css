@@ -1,0 +1,578 @@
+/* CSS/School/LawCorporateGovernance.css */
+
+.law-gov-page {
+  font-family:Outfit,Inter,sans-serif;
+  color:var(--law-text-dark);
+  background-color:#fff;
+  overflow-x:hidden;
+}
+
+.law-gov-section-header {
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.law-gov-section-header h2 {
+  font-size:2.5rem;
+  font-weight:800;
+  color:var(--law-secondary);
+  margin-bottom:15px;
+}
+
+.law-gov-hero {
+  background:var(--law-gradient-blue);
+  padding:100px 0 80px;
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.law-gov-hero-container {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  position:relative;
+  z-index:2;
+}
+
+.law-gov-hero-content {
+  flex:1;
+  color:#fff;
+}
+
+.law-gov-badge {
+  display:inline-block;
+  padding:8px 16px;
+  background:#ffffff26;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:var(--law-radius-full);
+  font-size:.9rem;
+  font-weight:600;
+  margin-bottom:25px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.law-gov-hero-content h1 {
+  font-size:3.5rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:25px;
+}
+
+.law-gov-hero-content p {
+  font-size:1.15rem;
+  line-height:1.6;
+  opacity:.9;
+  margin-bottom:15px;
+}
+
+.law-gov-hero-buttons {
+  display:flex;
+  gap:15px;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+
+.law-gov-hero-image {
+  flex:1;
+  position:relative;
+}
+
+.law-gov-hero-image img {
+  width:100%;
+  border-radius:var(--law-radius-lg);
+  box-shadow:var(--law-shadow-lg);
+}
+
+.law-gov-floating-badge {
+  position:absolute;
+  background:#fff;
+  padding:12px 20px;
+  border-radius:var(--law-radius-full);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:var(--law-shadow-md);
+  font-weight:700;
+  color:var(--law-text-dark);
+  animation:float 6s ease-in-out infinite;
+}
+
+.law-gov-stats-section {
+  padding:40px 0;
+  background:#fff;
+  margin-top:-50px;
+  position:relative;
+  z-index:10;
+}
+
+.law-marquee-container {
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  background:#fff;
+  border-radius:var(--law-radius-lg);
+  padding:10px 0;
+  box-shadow:var(--law-shadow-md);
+}
+
+.law-marquee-container:before,.law-marquee-container:after {
+  content:"";
+  position:absolute;
+  top:0;
+  width:100px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+
+.law-marquee-container:before {
+  left:0;
+  background:linear-gradient(to right,white,transparent);
+}
+
+.law-marquee-container:after {
+  right:0;
+  background:linear-gradient(to left,white,transparent);
+}
+
+.law-gov-stats-grid,.law-marquee-content {
+  display:flex;
+  width:max-content;
+  animation:scrollLawMarquee 25s linear infinite;
+  gap:40px;
+  padding:15px 20px;
+}
+
+.law-marquee-container:hover .law-marquee-content {
+  animation-play-state:paused;
+}
+
+.law-stat-item {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-weight:700;
+  color:var(--law-primary);
+  background:var(--law-bg-light);
+  padding:15px 25px;
+  border-radius:50px;
+  transition:all .3s ease;
+  border:1px solid transparent;
+}
+
+.law-stat-item:hover {
+  transform:translateY(-5px);
+  border-color:var(--law-accent);
+  background:#fff;
+  box-shadow:var(--law-shadow-sm);
+}
+
+.law-stat-icon {
+  color:var(--law-secondary);
+  font-size:1.5rem;
+}
+
+.law-gov-about-section {
+  padding:80px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-about-content {
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+  font-size:1.15rem;
+  line-height:1.8;
+  color:var(--law-text-gray);
+}
+
+.law-gov-about-content p {
+  margin-bottom:20px;
+}
+
+.law-gov-about-content .highlight-text {
+  font-weight:700;
+  color:var(--law-primary);
+  font-size:1.25rem;
+}
+
+.law-gov-programs-section {
+  padding:100px 0;
+  background:#fff;
+}
+
+.law-gov-courses-container {
+  display:flex;
+  flex-direction:column;
+  gap:50px;
+}
+
+.law-gov-course-category .category-title {
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--law-primary);
+  margin-bottom:30px;
+  padding-bottom:15px;
+  border-bottom:2px solid var(--law-bg-light);
+}
+
+.law-gov-courses-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+  gap:30px;
+}
+
+.law-gov-course-card {
+  background:#fff;
+  border-radius:var(--law-radius-lg);
+  border:1px solid #E5E7EB;
+  overflow:hidden;
+  transition:all .3s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.law-gov-course-card:hover {
+  box-shadow:var(--law-shadow-hover);
+  border-color:var(--law-primary);
+  transform:translateY(-5px);
+}
+
+.law-gov-detailed-course-card {
+  background:#fff;
+  border-radius:var(--law-radius-lg);
+  border:1px solid #E5E7EB;
+  overflow:hidden;
+  transition:all .3s ease;
+  padding:30px;
+  box-shadow:var(--law-shadow-sm);
+}
+
+.law-gov-detailed-course-card:hover {
+  box-shadow:var(--law-shadow-md);
+  border-color:var(--law-primary);
+}
+
+.law-gov-detailed-course-card h3 {
+  font-size:1.6rem;
+  font-weight:800;
+  color:var(--law-secondary);
+  margin-bottom:20px;
+  border-bottom:1px solid #E5E7EB;
+  padding-bottom:15px;
+}
+
+.law-gov-detailed-course-card h4 {
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--law-primary);
+  margin-bottom:15px;
+  margin-top:10px;
+}
+
+.law-gov-detailed-course-card p {
+  color:var(--law-text-gray);
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.law-gov-skills-section {
+  padding:80px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-skills-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.law-gov-skill-pill {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 24px;
+  background:#fff;
+  border-radius:var(--law-radius-full);
+  box-shadow:var(--law-shadow-sm);
+  transition:all .3s ease;
+  border:1px solid #E5E7EB;
+}
+
+.law-gov-skill-pill:hover {
+  transform:translateY(-3px);
+  box-shadow:var(--law-shadow-md);
+  border-color:var(--law-primary);
+  color:var(--law-primary);
+}
+
+.law-gov-features-section {
+  padding:100px 0;
+  background:#fff;
+}
+
+.law-gov-features-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:30px;
+}
+
+.law-gov-feature-card {
+  display:flex;
+  gap:20px;
+  padding:30px;
+  background:var(--law-bg-light);
+  border-radius:var(--law-radius-lg);
+  transition:all .3s ease;
+}
+
+.law-gov-feature-card:hover {
+  background:#fff;
+  box-shadow:var(--law-shadow-md);
+  transform:translateY(-5px);
+}
+
+.law-gov-formats-section {
+  padding:80px 0;
+  background:var(--law-gradient-blue);
+  color:#fff;
+}
+
+.law-gov-formats-section .law-gov-section-header h2 {
+  color:#fff;
+}
+
+.law-gov-formats-section .heading-line {
+  background:#fff;
+}
+
+.law-gov-formats-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.law-gov-format-card {
+  background:#ffffff1a;
+  padding:40px 30px;
+  border-radius:var(--law-radius-lg);
+  text-align:center;
+  border:1px solid rgba(255,255,255,.2);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  transition:all .3s ease;
+}
+
+.law-gov-format-card:hover {
+  background:#fff3;
+  transform:translateY(-5px);
+}
+
+.law-gov-format-card h4 {
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.law-gov-format-card p {
+  opacity:.9;
+  line-height:1.6;
+}
+
+.law-gov-audience-section {
+  padding:100px 0;
+  background:#fff;
+}
+
+.law-gov-audience-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  max-width:900px;
+  margin:30px auto 0;
+}
+
+.law-gov-roadmap-section {
+  padding:80px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-roadmap {
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+}
+
+.law-gov-benefits-section {
+  padding:100px 0;
+  background:#fff;
+}
+
+.law-gov-benefits-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:30px;
+}
+
+.law-gov-showcase-section {
+  padding:80px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-showcase-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:30px;
+}
+
+.law-gov-promise-section {
+  padding:80px 0;
+  background:#fff;
+}
+
+.law-gov-promise-box {
+  max-width:800px;
+  margin:0 auto;
+  text-align:center;
+  padding:50px;
+  background:var(--law-bg-light);
+  border-radius:var(--law-radius-lg);
+  border:1px solid #E5E7EB;
+}
+
+.law-gov-promise-box h2 {
+  font-size:2.5rem;
+  color:var(--law-primary);
+  margin-bottom:20px;
+}
+
+.law-gov-promise-box p {
+  font-size:1.05rem;
+  color:var(--law-text-gray);
+  margin-bottom:15px;
+  line-height:1.6;
+}
+
+.law-gov-faq-section {
+  padding:100px 0;
+  background:var(--law-bg-light);
+}
+
+.law-gov-faq-container {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.law-gov-faq-item {
+  background:#fff;
+  border-radius:var(--law-radius-md);
+  margin-bottom:15px;
+  box-shadow:var(--law-shadow-sm);
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+.law-gov-faq-item:hover {
+  box-shadow:var(--law-shadow-md);
+}
+
+.law-gov-faq-item.active .faq-answer {
+  max-height:200px;
+  padding:0 25px 25px;
+}
+
+.law-gov-cta-section {
+  padding:100px 0;
+  background:var(--law-gradient-blue);
+  color:#fff;
+  text-align:center;
+}
+
+.law-gov-cta-content {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.law-gov-cta-content h2 {
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.law-gov-cta-content p {
+  font-size:1.15rem;
+  opacity:.9;
+  line-height:1.6;
+}
+
+.law-gov-related-section {
+  padding:100px 0;
+  background:#fff;
+}
+
+.law-gov-related-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.law-gov-hero-content h1 {
+  font-size:2.8rem;
+}
+
+.law-gov-split-layout {
+  grid-template-columns:1fr;
+  gap:40px;
+}
+
+.law-gov-hero {
+  padding:80px 0 60px;
+  min-height:auto;
+}
+
+.law-gov-hero-container {
+  flex-direction:column;
+  text-align:center;
+}
+
+.law-gov-hero-buttons {
+  justify-content:center;
+}
+
+.law-gov-stats-grid {
+  grid-template-columns:repeat(2,1fr);
+}
+
+.law-gov-stats-section {
+  margin-top:0;
+  padding-top:20px;
+}
+
+.law-gov-section-header h2 {
+  font-size:2rem;
+}
+
+.law-gov-cta-content h2 {
+  font-size:2.2rem;
+}
+
+.law-gov-hero-content h1 {
+  font-size:2.2rem;
+}
+
+.law-gov-stats-grid {
+  grid-template-columns:1fr;
+}
+
+.law-gov-floating-badge {
+  display:none;
+}

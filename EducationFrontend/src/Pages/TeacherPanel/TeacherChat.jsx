@@ -1,0 +1,1 @@
+import ChatWorkspace from '../Shared/ChatWorkspace';import '../../CSS/TeacherPanel/TeacherPanelChat.css';export default function TeacherChat(){return <ChatWorkspace role="teacher" title="Class chat"/>}

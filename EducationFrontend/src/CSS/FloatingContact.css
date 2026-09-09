@@ -1,0 +1,374 @@
+/* FloatingContact.css */
+
+.hero-floating-shape {
+  position:absolute;
+  border-radius:50%;
+  z-index:1;
+  pointer-events:none;
+  filter:blur(2px);
+  opacity:.5;
+}
+
+.about-floating-card {
+  position:absolute;
+  bottom:20px;
+  right:-20px;
+  background:#ffffffe6;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  padding:16px 24px;
+  border-radius:16px;
+  box-shadow:0 10px 40px #0000001a;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:#0a2a5e;
+  z-index:3;
+  border:1px solid rgba(255,255,255,.6);
+}
+
+.about-floating-badge {
+  position:absolute;
+  top:40px;
+  left:-20px;
+  background:#ffffffe6;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  padding:12px 20px;
+  border-radius:16px;
+  box-shadow:0 10px 40px #0000001a;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:#0a2a5e;
+  z-index:3;
+  border:1px solid rgba(255,255,255,.6);
+}
+
+.floating-number {
+  display:block;
+  font-size:1.1rem;
+  line-height:1.2;
+}
+
+.floating-label {
+  display:block;
+  font-size:.8rem;
+  color:#6b7280;
+  font-weight:500;
+}
+
+.hero-floating-shape {
+  display:none;
+}
+
+.about-floating-card {
+  right:0;
+  padding:12px 16px;
+  font-size:.85rem;
+}
+
+.who-floating-card {
+  position:absolute;
+  bottom:20px;
+  right:-20px;
+  background:#ffffffeb;
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  padding:16px 24px;
+  border-radius:16px;
+  box-shadow:0 10px 40px #0000001a;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:#0a2a5e;
+  animation:float 3s ease-in-out infinite;
+  z-index:2;
+}
+
+.floating-icon {
+  color:#ff9a3d;
+  font-size:1.4rem;
+}
+
+.social-icon.whatsapp {
+  background:#25d3661a;
+  color:#25d366;
+}
+
+.social-icon.whatsapp:hover {
+  background:#25d366;
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+.reveal,.about-hero-shape-float,.who-floating-card,.badge-pulse {
+  animation:none!important;
+  transition:none!important;
+  opacity:1!important;
+  transform:none!important;
+}
+
+.ltc-floating-kid {
+  position:absolute;
+  font-size:4rem;
+  filter:drop-shadow(0 10px 10px rgba(0,0,0,.1));
+}
+
+.ltc-floating-kid {
+  font-size:3rem;
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--solc-primary);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  font-weight:700;
+  box-shadow:var(--solc-shadow-lg);
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--solb-primary);
+  width:60px;
+  height:60px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:var(--solb-shadow-lg);
+}
+
+.law-gov-floating-badge {
+  position:absolute;
+  background:#fff;
+  padding:12px 20px;
+  border-radius:var(--law-radius-full);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:var(--law-shadow-md);
+  font-weight:700;
+  color:var(--law-text-dark);
+  animation:float 6s ease-in-out infinite;
+}
+
+.law-gov-floating-badge {
+  display:none;
+}
+
+.re-floating-badge {
+  position:absolute;
+  background:#fff;
+  padding:12px 20px;
+  border-radius:var(--re-radius-full);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:var(--re-shadow-md);
+  font-weight:700;
+  color:var(--re-text-dark);
+  animation:float 6s ease-in-out infinite;
+}
+
+.re-floating-badge {
+  display:none;
+}
+
+.journo-floating-badge {
+  position:absolute;
+  background:#fff;
+  padding:12px 20px;
+  border-radius:var(--journo-radius-full);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:var(--journo-shadow-md);
+  font-weight:700;
+  color:var(--journo-text-dark);
+  animation:float 6s ease-in-out infinite;
+}
+
+.journo-floating-badge {
+  display:none;
+}
+
+.floating-contact-container {
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  z-index:1000;
+}
+
+.floating-btn {
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 4px 15px #0003;
+  transition:all .3s cubic-bezier(.175,.885,.32,1.275);
+}
+
+.floating-icon {
+  font-size:30px;
+}
+
+.whatsapp-btn {
+  background-color:#25d366;
+}
+
+.whatsapp-btn:hover {
+  background-color:#128c7e;
+  transform:scale(1.1) translateY(-5px);
+  box-shadow:0 8px 25px #25d36666;
+  color:#fff;
+}
+
+.call-btn {
+  background-color:#007bff;
+}
+
+.call-btn:hover {
+  background-color:#0056b3;
+  transform:scale(1.1) translateY(-5px);
+  box-shadow:0 8px 25px #007bff66;
+  color:#fff;
+}
+
+.floating-btn:after {
+  content:attr(title);
+  position:absolute;
+  right:75px;
+  background-color:#333;
+  color:#fff;
+  padding:8px 15px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+  white-space:nowrap;
+  opacity:0;
+  visibility:hidden;
+  transition:all .3s ease;
+  transform:translate(10px);
+}
+
+.floating-btn:hover:after {
+  opacity:1;
+  visibility:visible;
+  transform:translate(0);
+}
+
+.floating-contact-container {
+  bottom:20px;
+  right:20px;
+  gap:10px;
+}
+
+.floating-btn {
+  width:50px;
+  height:50px;
+}
+
+.floating-icon {
+  font-size:24px;
+}
+
+.floating-btn:after {
+  display:none;
+}
+
+.btn-whatsapp {
+  background:#25d366;
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+  transition:all .3s;
+}
+
+.btn-whatsapp:hover {
+  background:#128c7e;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--spiritual-saffron);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 10px 20px #00000026;
+  animation:float 4s ease-in-out infinite;
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--academic-primary-blue);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 10px 20px #00000026;
+  animation:float 4s ease-in-out infinite;
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--digital-orange);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 10px 20px #00000026;
+  animation:float 4s ease-in-out infinite;
+}
+
+.floating-element {
+  position:absolute;
+  background:#fff;
+  color:var(--chess-blue);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 10px 20px #00000026;
+  animation:float 4s ease-in-out infinite;
+}

@@ -1,0 +1,204 @@
+/* CSS/Courses/ChessBrainDevelopment.css */
+
+.chess-page {
+  font-family:Inter,sans-serif;
+  color:var(--chess-dark-gray);
+  overflow-x:hidden;
+  max-width:100vw;
+}
+
+.bg-gradient-chess {
+  background:linear-gradient(135deg,#0a0a0a,#036)!important;
+}
+
+.chess-hero {
+  padding:80px 0;
+  position:relative;
+  overflow:hidden;
+}
+
+.chess-hero-container {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+  align-items:center;
+}
+
+.chess-badge {
+  display:inline-block;
+  padding:8px 16px;
+  background:#ffffff1a;
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  border-radius:50px;
+  font-size:.9rem;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+.chess-hero-buttons {
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.chess-hero-image {
+  position:relative;
+  text-align:center;
+}
+
+.chess-hero-image img {
+  width:100%;
+  max-width:500px;
+  border-radius:20px;
+  box-shadow:0 20px 40px #0006;
+  border:4px solid var(--chess-gold);
+}
+
+.chess-timeline {
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+}
+
+.chess-timeline:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:var(--chess-black);
+  transform:translate(-50%);
+  border-radius:4px;
+}
+
+.chess-timeline-step {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.chess-timeline-step:nth-child(2n) {
+  flex-direction:row-reverse;
+}
+
+.chess-timeline-content {
+  width:45%;
+  background:#fff;
+  padding:25px 30px;
+  border-radius:12px;
+  box-shadow:0 5px 15px #0000000d;
+  font-weight:800;
+  color:var(--chess-black);
+  transition:all .3s ease;
+  font-size:1.15rem;
+  text-align:center;
+  border:3px solid transparent;
+}
+
+.chess-timeline-step:nth-child(2n) .chess-timeline-content {
+  color:var(--chess-black);
+}
+
+.chess-timeline-step:hover .chess-timeline-content {
+  transform:scale(1.05);
+  box-shadow:0 15px 30px #0000001a;
+  border-color:var(--chess-gold);
+}
+
+.chess-timeline-dot {
+  width:28px;
+  height:28px;
+  background:var(--chess-gold);
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%);
+  border:6px solid var(--chess-black);
+  box-shadow:0 0 10px #0003;
+  z-index:2;
+}
+
+.chess-hero-container {
+  display:flex;
+  flex-direction:column-reverse;
+  text-align:center;
+}
+
+.chess-hero-buttons {
+  justify-content:center;
+}
+
+.chess-hero-image {
+  margin-top:40px;
+}
+
+.chess-timeline:before {
+  left:40px;
+}
+
+.chess-timeline-step {
+  flex-direction:column!important;
+  align-items:flex-start;
+  padding-left:80px;
+}
+
+.chess-timeline-content {
+  width:100%;
+  text-align:left;
+}
+
+.chess-timeline-dot {
+  left:40px;
+}
+
+.chess-hero-buttons {
+  flex-direction:column;
+}
+
+.chess-hero-buttons button,.chess-hero-buttons a {
+  width:100%;
+}
+
+.about-program,.featured-programs,.chess-curriculum,.what-you-learn,.why-choose,.audience-benefits,.chess-journey,.faqs,.our-promise,.final-cta,.related-schools {
+  padding:60px 15px!important;
+}
+
+.chess-marquee-container {
+  overflow:hidden;
+  position:relative;
+  width:100%;
+  padding:10px 0;
+}
+
+.chess-marquee-content {
+  display:flex;
+  gap:30px;
+  width:max-content;
+  animation:chessMarqueeScroll 25s linear infinite;
+}
+
+.chess-marquee-container:hover .chess-marquee-content {
+  animation-play-state:paused;
+}
+
+.chess-stat-item {
+  background:var(--chess-black);
+  padding:12px 25px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 4px 15px #0000004d;
+  white-space:nowrap;
+}
+
+.chess-stat-icon {
+  font-size:1.5rem;
+  color:var(--chess-gold);
+}

@@ -1,0 +1,61 @@
+/* CSS/School/WellnessPersonalGrowth.css */
+
+.growth-section {
+  padding:80px 20px;
+  background:#fff;
+}
+
+.growth-content {
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.growth-content h2 {
+  font-size:2.8rem;
+  font-weight:800;
+  color:#0a2a5e;
+  margin-bottom:25px;
+  font-family:Poppins,sans-serif;
+}
+
+.growth-content p {
+  font-size:1.1rem;
+  color:#6b7280;
+  line-height:1.8;
+  max-width:800px;
+  margin:0 auto 20px;
+}
+
+.growth-highlights {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.growth-tag {
+  position:relative;
+  overflow:hidden;
+  background:#f8f9fa;
+  color:#0a2a5e;
+  padding:10px 24px;
+  border-radius:50px;
+  font-weight:600;
+  font-size:.95rem;
+  border:1px solid #E5E7EB;
+  transition:all .3s ease;
+}
+
+.growth-tag:hover {
+  background:#0d6efd;
+  color:#fff;
+  border-color:#0d6efd;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px #0d6efd40;
+}
+
+.growth-content h2 {
+  font-size:2.2rem;
+}

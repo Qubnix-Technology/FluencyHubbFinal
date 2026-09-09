@@ -1,0 +1,11 @@
+/* CSS/School/SchoolOfLanguagesCommunication.css */
+
+.solc-languages-section {
+  padding:100px 20px;
+}
+
+.solc-languages-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:20px;
+}

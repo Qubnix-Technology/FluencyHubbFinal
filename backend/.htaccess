@@ -1,0 +1,21 @@
+# Disable directory listing (prevents people from seeing your files if index.php is missing)
+Options -Indexes
+
+# Set default index page
+DirectoryIndex index.php
+
+# Ensure Authorization headers are passed to PHP
+# (Apache sometimes strips 'Authorization: Bearer ...' headers by default)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+</IfModule>
+
+# (Optional) Handle CORS for OPTIONS requests at the Apache level
+# If you get preflight CORS errors, uncomment the lines below:
+# <IfModule mod_headers.c>
+#     Header always set Access-Control-Allow-Origin "*"
+#     Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, PUT, DELETE"
+#     Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+# </IfModule>

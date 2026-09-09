@@ -1,0 +1,187 @@
+/* CSS/Courses/AcademicExcellence.css */
+
+.academic-excellence-page {
+  font-family:Inter,sans-serif;
+  color:#333;
+  overflow-x:hidden;
+}
+
+.academic-hero {
+  padding:80px 0;
+  position:relative;
+  overflow:hidden;
+}
+
+.academic-hero-container {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+  align-items:center;
+}
+
+.academic-badge {
+  display:inline-block;
+  padding:8px 16px;
+  background:#ffffff1a;
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  border-radius:50px;
+  font-size:.9rem;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+.academic-hero-buttons {
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.academic-hero-image {
+  position:relative;
+  text-align:center;
+}
+
+.academic-hero-image img {
+  width:100%;
+  max-width:500px;
+  border-radius:20px;
+  box-shadow:0 20px 40px #0000004d;
+  border:4px solid rgba(255,255,255,.2);
+}
+
+.academic-marquee-container {
+  overflow:hidden;
+  position:relative;
+  width:100%;
+  padding:10px 0;
+}
+
+.academic-marquee-content {
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:scrollMarquee 30s linear infinite;
+}
+
+.academic-marquee-container:hover .academic-marquee-content {
+  animation-play-state:paused;
+}
+
+.academic-timeline {
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+}
+
+.academic-timeline:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:var(--academic-primary-blue);
+  transform:translate(-50%);
+  border-radius:4px;
+}
+
+.academic-timeline-step {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.academic-timeline-step:nth-child(2n) {
+  flex-direction:row-reverse;
+}
+
+.academic-timeline-content {
+  width:45%;
+  background:#fff;
+  padding:25px 30px;
+  border-radius:12px;
+  box-shadow:0 5px 15px #0000000d;
+  font-weight:800;
+  color:var(--academic-primary-blue);
+  transition:all .3s ease;
+  font-size:1.15rem;
+  text-align:center;
+  border:3px solid transparent;
+}
+
+.academic-timeline-step:nth-child(2n) .academic-timeline-content {
+  color:var(--academic-primary-blue);
+}
+
+.academic-timeline-step:hover .academic-timeline-content {
+  transform:scale(1.05);
+  box-shadow:0 15px 30px #0000001a;
+  border-color:var(--academic-gold);
+}
+
+.academic-timeline-dot {
+  width:28px;
+  height:28px;
+  background:var(--academic-gold);
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%);
+  border:6px solid white;
+  box-shadow:0 0 10px #0000001a;
+  z-index:2;
+}
+
+.academic-hero-container {
+  grid-template-columns:1fr;
+  text-align:center;
+  display:flex;
+  flex-direction:column-reverse;
+}
+
+.academic-hero-buttons {
+  justify-content:center;
+}
+
+.academic-hero-image {
+  margin-top:40px;
+}
+
+.academic-timeline:before {
+  left:40px;
+}
+
+.academic-timeline-step {
+  flex-direction:column!important;
+  align-items:flex-start;
+  padding-left:80px;
+}
+
+.academic-timeline-content {
+  width:100%;
+  text-align:left;
+}
+
+.academic-timeline-dot {
+  left:40px;
+}
+
+.academic-hero {
+  padding:120px 20px 60px;
+}
+
+.about-program,.academic-features,.curriculum-section,.academic-audience,.academic-timeline-section,.student-benefits,.academic-faq,.academic-cta {
+  padding:60px 15px!important;
+}
+
+.academic-hero-buttons {
+  flex-direction:column;
+}
+
+.academic-hero-buttons button,.academic-hero-buttons a {
+  width:100%;
+}

@@ -1,0 +1,93 @@
+/* CSS/School/FutureTechSoftwareEngineering.css */
+
+.solb-software-section {
+  padding:80px 20px;
+}
+
+.solb-software-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.solb-software-tag {
+  background:#fff;
+  border:1px solid #E2E8F0;
+  padding:12px 24px;
+  border-radius:var(--solb-radius-full);
+  font-weight:700;
+  color:var(--solb-secondary);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:var(--solb-shadow-sm);
+  transition:all .3s ease;
+}
+
+.solb-software-tag:hover {
+  box-shadow:var(--solb-shadow-md);
+  border-color:var(--solb-primary);
+  color:var(--solb-primary);
+  transform:translateY(-3px);
+}
+
+.solb-courses-section,.solb-about-section,.solb-software-section,.solb-learn-section,.solb-why-section,.solb-career-section,.solb-audience-section,.solb-journey-section,.solb-benefits-section,.solb-showcase-section,.solb-faq-section,.solb-cta-section,.solb-related-section {
+  padding:60px 15px;
+}
+
+.ft-techgrid-section {
+  padding:100px 20px;
+  background:var(--ft-bg-dark);
+}
+
+.ft-tech-matrix {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.ft-tech-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  transition:all .3s;
+}
+
+.ft-tech-item:hover {
+  transform:scale(1.05);
+  background:#10b9811a;
+}
+
+.ft-tech-item svg {
+  font-size:3rem;
+  margin-bottom:15px;
+}
+
+.ft-tech-name {
+  font-weight:700;
+  color:var(--ft-text-light);
+  margin-bottom:5px;
+}
+
+.ft-tech-level {
+  font-size:.75rem;
+  padding:3px 8px;
+  border-radius:4px;
+  background:#10b9811a;
+  color:var(--ft-primary);
+}
+
+.ft-courses-section,.ft-stats-section,.ft-about-section,.ft-domains-section,.ft-why-section,.ft-formats-section,.ft-techgrid-section,.ft-careers-section,.ft-roadmap-section,.ft-projects-section,.ft-faq-section,.ft-cta-section,.ft-related-section {
+  padding:60px 15px;
+}
+
+.ft-courses-grid,.ft-stats-grid,.ft-domains-grid,.ft-why-grid,.ft-formats-grid,.ft-tech-grid,.ft-careers-grid,.ft-projects-grid {
+  grid-template-columns:1fr;
+}

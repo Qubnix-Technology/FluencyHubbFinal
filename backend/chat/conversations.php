@@ -1,0 +1,7 @@
+<?php
+require_once __DIR__.'/../config/database.php';require_once __DIR__.'/helpers.php';$a=chat_actor($pdo);$items=[];
+if($a['role']==='admin'){$q=$pdo->query("SELECT id,name,'teacher' role,photo FROM teachers WHERE status='Active' ORDER BY name");$items=$q->fetchAll();$q=$pdo->query("SELECT id,student_name name,'student' role,photo FROM teacher_students WHERE email IS NOT NULL ORDER BY student_name");$items=array_merge($items,$q->fetchAll());}
+elseif($a['role']==='teacher'){$q=$pdo->prepare("SELECT id,student_name name,'student' role,photo FROM teacher_students WHERE teacher_id=? ORDER BY student_name");$q->execute([$a['id']]);$items=$q->fetchAll();}
+else{$q=$pdo->prepare("SELECT t.id,t.name,'teacher' role,t.photo FROM teacher_students s JOIN teachers t ON t.id=s.teacher_id WHERE s.id=?");$q->execute([$a['id']]);$items=$q->fetchAll();}
+$admins=$pdo->query("SELECT id,name,'admin' role,NULL photo FROM admin_users ORDER BY id LIMIT 1")->fetchAll();$items=array_merge($items,$admins);
+foreach($items as &$i){$q=$pdo->prepare('SELECT COUNT(*) FROM messages WHERE receiver_role=? AND receiver_id=? AND sender_role=? AND sender_id=? AND read_at IS NULL AND deleted_at IS NULL');$q->execute([$a['role'],$a['id'],$i['role'],$i['id']]);$i['unread']=(int)$q->fetchColumn();$i['id']=(int)$i['id'];}$items=array_values(array_filter($items,fn($i)=>!($i['role']===$a['role']&&(int)$i['id']===$a['id'])));json_response(['success'=>true,'actor'=>$a,'conversations'=>$items]);
