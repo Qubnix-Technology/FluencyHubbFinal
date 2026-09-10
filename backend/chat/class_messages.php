@@ -5,6 +5,8 @@ require_once __DIR__ . '/class_helpers.php';
 $actor = chat_actor($pdo);
 $teacherId = (int)($_GET['teacher_id'] ?? 0);
 class_chat_allowed($pdo, $actor, $teacherId);
+$chatType = trim($_GET['chat_type'] ?? '');
+$filterStudentId = isset($_GET['student_id']) ? (int)$_GET['student_id'] : 0;
 
 if ($teacherId === 0 && $actor['role'] === 'admin') {
     // Admin viewing ONLY Broadcast Announcements across all classes
@@ -28,9 +30,6 @@ if ($teacherId === 0 && $actor['role'] === 'admin') {
     $messages = $q->fetchAll(PDO::FETCH_ASSOC);
 } else {
     // Check if channel filter was specified: 'group' (all class) or 'direct' (with student_id)
-    $chatType = trim($_GET['chat_type'] ?? '');
-    $filterStudentId = isset($_GET['student_id']) ? (int)$_GET['student_id'] : null;
-
     if ($actor['role'] === 'student') {
         // A student can ONLY see:
         // 1. Group messages (recipient_student_id IS NULL)
@@ -129,9 +128,17 @@ if ($teacherId === 0 && $actor['role'] === 'admin') {
 if (!empty($messages)) {
     $lastMsg = end($messages);
     $maxMsgId = (int)($lastMsg['id'] ?? 0);
-    class_chat_mark_read($pdo, $actor, $teacherId, $maxMsgId);
+    $readType = ($teacherId === 0 && $actor['role'] === 'admin') ? 'broadcast' : ($chatType === 'direct' ? 'direct' : 'group');
+    $readStudentId = $readType === 'direct'
+        ? ($actor['role'] === 'student' ? (int)$actor['id'] : (int)$filterStudentId)
+        : 0;
+    class_chat_mark_read($pdo, $actor, $teacherId, $maxMsgId, $readType, $readStudentId);
 } else {
-    class_chat_mark_read($pdo, $actor, $teacherId, 0);
+    $readType = ($teacherId === 0 && $actor['role'] === 'admin') ? 'broadcast' : ($chatType === 'direct' ? 'direct' : 'group');
+    $readStudentId = $readType === 'direct'
+        ? ($actor['role'] === 'student' ? (int)$actor['id'] : (int)$filterStudentId)
+        : 0;
+    class_chat_mark_read($pdo, $actor, $teacherId, 0, $readType, $readStudentId);
 }
 
 

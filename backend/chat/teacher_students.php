@@ -23,17 +23,53 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([$teacherId]);
 $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$unreadData = class_chat_get_unread_counts($pdo, $actor);
+$directUnread = $unreadData['per_direct'][$teacherId] ?? [];
+
+$latestStmt = $pdo->prepare("
+    SELECT
+        id,
+        sender_role,
+        sender_id,
+        recipient_student_id,
+        content,
+        created_at
+    FROM class_messages
+    WHERE teacher_id = ?
+      AND deleted_at IS NULL
+      AND recipient_student_id IS NOT NULL
+    ORDER BY id DESC
+");
+$latestStmt->execute([$teacherId]);
+$latestByStudent = [];
+foreach ($latestStmt->fetchAll(PDO::FETCH_ASSOC) as $message) {
+    $studentId = $message['sender_role'] === 'student'
+        ? (int)$message['sender_id']
+        : (int)$message['recipient_student_id'];
+    if ($studentId > 0 && !isset($latestByStudent[$studentId])) {
+        $latestByStudent[$studentId] = [
+            'id' => (int)$message['id'],
+            'content' => $message['content'],
+            'created_at' => $message['created_at'],
+            'sender_role' => $message['sender_role'],
+            'sender_id' => (int)$message['sender_id'],
+        ];
+    }
+}
 
 json_response([
     'success' => true,
     'teacher_id' => $teacherId,
-    'students' => array_map(function($s) {
+    'students' => array_map(function($s) use ($directUnread, $latestByStudent) {
+        $studentId = (int)$s['id'];
         return [
-            'id' => (int)$s['id'],
+            'id' => $studentId,
             'student_name' => $s['student_name'],
             'email' => $s['email'] ?? '',
             'course' => $s['course'] ?? '',
-            'status' => $s['status'] ?? 'Active'
+            'status' => $s['status'] ?? 'Active',
+            'unread_count' => (int)($directUnread[$studentId] ?? 0),
+            'latest_direct' => $latestByStudent[$studentId] ?? null,
         ];
     }, $students)
 ]);

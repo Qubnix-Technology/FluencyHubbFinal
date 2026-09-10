@@ -38,6 +38,9 @@ export const classChatApi = {
   }),
   remove: (role, id) => request('chat/class_delete.php', role, { method: 'POST', body: JSON.stringify({ id }) }),
   unread: role => request('chat/class_unread.php', role),
-  markRead: (role, teacherId, messageId = 0) => request('chat/class_read.php', role, { method: 'POST', body: JSON.stringify({ teacher_id: teacherId, message_id: messageId }) }),
+  markRead: (role, teacherId, messageId = 0, chatType = 'group', studentId = 0) => request('chat/class_read.php', role, {
+    method: 'POST',
+    body: JSON.stringify({ teacher_id: teacherId, message_id: messageId, chat_type: chatType, student_id: studentId })
+  }),
 };
 

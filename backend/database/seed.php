@@ -65,6 +65,14 @@ try {
     if (!in_array('broadcast_id', $cmCols)) {
         $pdo->exec("ALTER TABLE class_messages ADD COLUMN broadcast_id VARCHAR(64) NULL");
     }
+    if (!in_array('recipient_student_id', $cmCols)) {
+        $pdo->exec("ALTER TABLE class_messages ADD COLUMN recipient_student_id INT UNSIGNED NULL AFTER broadcast_id");
+    }
+    try {
+        $pdo->exec("ALTER TABLE class_messages ADD INDEX idx_class_messages_recipient (recipient_student_id)");
+    } catch (Throwable $e) {
+        // Index already exists
+    }
     echo "  ✓ Schema and table columns verified.\n";
 
     // 2. Seed Default Settings

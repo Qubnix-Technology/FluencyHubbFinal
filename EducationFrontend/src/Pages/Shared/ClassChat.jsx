@@ -79,7 +79,7 @@ const formatPreviewTime = dateStr => {
 // Bump CHAT_CACHE_VERSION whenever message isolation logic changes.
 // This clears all old contaminated fh_chat_* localStorage entries automatically.
 ;(() => {
-  const CHAT_CACHE_VERSION = 'v3-isolated';
+      const CHAT_CACHE_VERSION = 'v4-local-direct-isolated';
   try {
     if (localStorage.getItem('fh_chat_version') !== CHAT_CACHE_VERSION) {
       const keysToDelete = [];
@@ -102,8 +102,20 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
       student_name: s.student_name || s.name || 'Student',
       email: s.email || '',
       course: s.course || s.course_name || '',
-      status: s.status || 'Active'
+      status: s.status || 'Active',
+      unread_count: Number(s.unread_count || 0),
+      latest_direct: s.latest_direct || null
     }));
+  };
+
+  const sortStudentsWhatsApp = (list = []) => {
+    return [...list].sort((a, b) => {
+      const timeA = a.latest_direct?.created_at ? new Date(a.latest_direct.created_at).getTime() : 0;
+      const timeB = b.latest_direct?.created_at ? new Date(b.latest_direct.created_at).getTime() : 0;
+      if (timeA !== timeB) return timeB - timeA;
+      if ((b.unread_count || 0) !== (a.unread_count || 0)) return (b.unread_count || 0) - (a.unread_count || 0);
+      return (a.student_name || '').localeCompare(b.student_name || '');
+    });
   };
 
   // Scope localStorage cache keys per user to prevent cross-user data leakage
@@ -166,23 +178,23 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
   const [subChannel, setSubChannel] = useState('group'); // 'group' | 'direct'
   const [teacherStudents, setTeacherStudents] = useState(() => {
     if (Array.isArray(initialStudents) && initialStudents.length > 0) {
-      return normalizeStudents(initialStudents);
+      return sortStudentsWhatsApp(normalizeStudents(initialStudents));
     }
     if (Array.isArray(teacher?.students) && teacher.students.length > 0) {
-      return normalizeStudents(teacher.students);
+      return sortStudentsWhatsApp(normalizeStudents(teacher.students));
     }
     try {
       const cached = localStorage.getItem(`fh_chat_students_${cacheScope}`);
-      if (cached) return JSON.parse(cached);
+      if (cached) return sortStudentsWhatsApp(normalizeStudents(JSON.parse(cached)));
     } catch {}
     return [];
   });
   const [selectedStudent, setSelectedStudent] = useState(() => {
     if (Array.isArray(initialStudents) && initialStudents.length > 0) {
-      return normalizeStudents(initialStudents)[0] || null;
+      return sortStudentsWhatsApp(normalizeStudents(initialStudents))[0] || null;
     }
     if (Array.isArray(teacher?.students) && teacher.students.length > 0) {
-      return normalizeStudents(teacher.students)[0] || null;
+      return sortStudentsWhatsApp(normalizeStudents(teacher.students))[0] || null;
     }
     return null;
   }); // For teacher/admin selecting an individual student
@@ -192,6 +204,46 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
   const messagesContainerRef = useRef(null);
   const textareaRef = useRef(null);
   const prevMessagesLength = useRef(0);
+
+  const activeGroupUnread = () => {
+    const group = groups.find(g => Number(g.teacher_id) === Number(active?.teacher_id));
+    return Number(group?.group_unread_count ?? group?.unread_count ?? 0);
+  };
+
+  const activeDirectUnread = () => {
+    if (role === 'student') {
+      const group = groups.find(g => Number(g.teacher_id) === Number(active?.teacher_id));
+      return Number(group?.direct_unread_count || 0);
+    }
+    return Number(selectedStudent?.unread_count || 0);
+  };
+
+  const clearCurrentThreadUnread = () => {
+    const tid = active?.teacher_id ?? teacher?.id;
+    if (!tid) return;
+    if (subChannel === 'direct') {
+      if (role === 'student') {
+        setGroups(prev => prev.map(g => Number(g.teacher_id) === Number(tid)
+          ? { ...g, direct_unread_count: 0, unread_count: Math.max(0, Number(g.unread_count || 0) - Number(g.direct_unread_count || 0)) }
+          : g
+        ));
+      } else if (selectedStudent?.id) {
+        const current = Number(selectedStudent.unread_count || 0);
+        setTeacherStudents(prev => prev.map(s => Number(s.id) === Number(selectedStudent.id) ? { ...s, unread_count: 0 } : s));
+        setSelectedStudent(prev => prev ? { ...prev, unread_count: 0 } : prev);
+        setGroups(prev => prev.map(g => Number(g.teacher_id) === Number(tid)
+          ? { ...g, unread_count: Math.max(0, Number(g.unread_count || 0) - current) }
+          : g
+        ));
+      }
+      return;
+    }
+
+    setGroups(prev => prev.map(g => Number(g.teacher_id) === Number(tid)
+      ? { ...g, group_unread_count: 0, unread_count: Math.max(0, Number(g.unread_count || 0) - Number(g.group_unread_count ?? g.unread_count ?? 0)) }
+      : g
+    ));
+  };
 
   // WhatsApp-style sorter:
   // #1 Pinned: All Classes Broadcast (teacher_id === 0)
@@ -232,6 +284,9 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
         }
         const exists = list.find(g => g.teacher_id === value.teacher_id);
         const selected = exists || list[0] || null;
+        if (selected && value && selected.teacher_id === value.teacher_id) {
+          return value;
+        }
         if (selected) {
           try { localStorage.setItem(`fh_chat_active_${cacheScope}`, JSON.stringify(selected)); } catch {}
         }
@@ -249,14 +304,27 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
     try {
       const data = await classChatApi.teacherStudents(role, tid);
       if (data && Array.isArray(data.students)) {
-        setTeacherStudents(data.students);
+        const normalized = sortStudentsWhatsApp(normalizeStudents(data.students));
+        setTeacherStudents(normalized);
         try {
-          localStorage.setItem(`fh_chat_students_${cacheScope}`, JSON.stringify(data.students));
+          localStorage.setItem(`fh_chat_students_${cacheScope}`, JSON.stringify(normalized));
         } catch {}
         // Default selected student if direct subchannel
         setSelectedStudent(prev => {
-          if (prev && data.students.some(s => s.id === prev.id)) return prev;
-          return data.students[0] || null;
+          if (prev) {
+            const updated = normalized.find(s => Number(s.id) === Number(prev.id));
+            if (updated) {
+              const unchanged =
+                updated.student_name === prev.student_name &&
+                updated.email === prev.email &&
+                updated.course === prev.course &&
+                updated.status === prev.status &&
+                Number(updated.unread_count || 0) === Number(prev.unread_count || 0) &&
+                updated.latest_direct?.id === prev.latest_direct?.id;
+              return unchanged ? prev : updated;
+            }
+          }
+          return normalized[0] || null;
         });
       }
     } catch (e) {
@@ -330,11 +398,38 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
     setTimeout(() => setIsRefreshing(false), 500);
   };
 
+  const refreshUnreadBadges = async () => {
+    const tid = active?.teacher_id || teacher?.id;
+    try {
+      if (role === 'teacher' && tid) {
+        await loadTeacherStudents(tid);
+      } else if (role === 'student') {
+        const data = await classChatApi.unread(role);
+        const teacherId = Number(active?.teacher_id || teacher?.id || 0);
+        const directUnread = Number(data.per_direct?.[teacherId]?.[studentId || currentUserId] || 0);
+        const groupUnread = Number(data.per_group?.[teacherId] || 0);
+        setGroups(prev => prev.map(g => Number(g.teacher_id) === teacherId
+          ? {
+              ...g,
+              direct_unread_count: directUnread,
+              group_unread_count: groupUnread,
+              unread_count: directUnread + groupUnread
+            }
+          : g
+        ));
+      } else if (role === 'admin') {
+        await loadGroups();
+      }
+    } catch {
+      // Badge refresh is best-effort; message polling will surface hard failures.
+    }
+  };
+
   // Sync initial students if passed from parent
   useEffect(() => {
     const incoming = initialStudents || teacher?.students;
     if (Array.isArray(incoming) && incoming.length > 0) {
-      const normalized = normalizeStudents(incoming);
+      const normalized = sortStudentsWhatsApp(normalizeStudents(incoming));
       setTeacherStudents(normalized);
       try {
         localStorage.setItem(`fh_chat_students_${role}`, JSON.stringify(normalized));
@@ -386,10 +481,14 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
       loadMessages();
       setTimeout(() => scrollToBottom(false), 150);
 
-      classChatApi.markRead(role, activeTid).catch(() => {});
-      setGroups(prev => prev.map(g => g.teacher_id === activeTid ? { ...g, unread_count: 0 } : g));
+      const readChatType = subChannel === 'direct' ? 'direct' : 'group';
+      const readStudentId = readChatType === 'direct'
+        ? (role === 'student' ? (studentId || currentUserId || 0) : (selectedStudent?.id || 0))
+        : 0;
+      classChatApi.markRead(role, activeTid, 0, readChatType, readStudentId).catch(() => {});
+      clearCurrentThreadUnread();
     }
-  }, [active?.teacher_id, subChannel, selectedStudent?.id]);
+  }, [active?.teacher_id, subChannel, selectedStudent?.id, currentUserId]);
 
 
 
@@ -473,6 +572,8 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                 setGroups(prevGroups => {
                   const updated = prevGroups.map(g => {
                     if (g.teacher_id === msgTeacherId) {
+                      const isUnread = activeTid !== msgTeacherId && msg.sender_role !== role;
+                      const isGroupMessage = !msg.recipient_student_id;
                       return {
                         ...g,
                         latest: {
@@ -482,9 +583,12 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                           sender_role: msg.sender_role,
                           sender_name: msg.sender_name
                         },
-                        unread_count: (activeTid !== msgTeacherId && msg.sender_role !== role)
+                        unread_count: isUnread
                           ? (g.unread_count || 0) + 1
-                          : g.unread_count
+                          : g.unread_count,
+                        group_unread_count: isUnread && isGroupMessage
+                          ? (g.group_unread_count || 0) + 1
+                          : g.group_unread_count
                       };
                     }
                     return g;
@@ -537,7 +641,8 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
     const timer = window.setInterval(() => {
       if (document.hidden) return; // Pause polling when tab is in the background
       loadMessages(false);
-    }, 8000);
+      refreshUnreadBadges();
+    }, 15000);
     return () => {
       window.clearInterval(timer);
     };
@@ -548,6 +653,7 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
     const handleVisibilityChange = () => {
       if (!document.hidden && active) {
         loadMessages(false);
+        refreshUnreadBadges();
       }
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -844,6 +950,9 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                   <div className="group-item-info">
                     <div className="group-item-row-top">
                       <strong className="group-item-name">Class Discussion</strong>
+                      {activeGroupUnread() > 0 && (
+                        <span className="group-unread-badge">{activeGroupUnread()}</span>
+                      )}
                     </div>
                     <div className="group-item-row-bottom">
                       <small className="group-item-preview">
@@ -866,6 +975,9 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                     <div className="group-item-info">
                       <div className="group-item-row-top">
                         <strong className="group-item-name">Teacher</strong>
+                        {activeDirectUnread() > 0 && (
+                          <span className="group-unread-badge">{activeDirectUnread()}</span>
+                        )}
                       </div>
                       <div className="group-item-row-bottom">
                         <small className="group-item-preview">
@@ -891,6 +1003,12 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                     ) : (
                       teacherStudents.map(student => {
                         const isSelected = subChannel === 'direct' && selectedStudent?.id === student.id;
+                        const unread = Number(student.unread_count || 0);
+                        const latestPreview = student.latest_direct?.content
+                          ? (student.latest_direct.content.length > 32
+                              ? student.latest_direct.content.slice(0, 29) + '...'
+                              : student.latest_direct.content)
+                          : (student.course ? `${student.course}` : 'Direct message');
                         return (
                           <button
                             key={student.id}
@@ -909,11 +1027,17 @@ export default function ClassChat({ role = 'teacher', title = 'Class discussion'
                                 <strong className="group-item-name">
                                   {student.student_name}
                                 </strong>
+                                {unread > 0 && (
+                                  <span className="group-unread-badge">{unread}</span>
+                                )}
                               </div>
                               <div className="group-item-row-bottom">
                                 <small className="group-item-preview">
-                                  {student.course ? `${student.course}` : 'Direct message'}
+                                  {latestPreview}
                                 </small>
+                                {student.latest_direct?.created_at && (
+                                  <span className="group-item-time">{formatPreviewTime(student.latest_direct.created_at)}</span>
+                                )}
                               </div>
                             </div>
                           </button>

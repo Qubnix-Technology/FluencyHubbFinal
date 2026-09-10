@@ -12,3 +12,6 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+
+//VITE_API_BASE_URL=https://fluencyhubb.com/api

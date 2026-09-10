@@ -177,8 +177,10 @@ CREATE TABLE IF NOT EXISTS class_messages (
   sender_role ENUM('admin','teacher','student') NOT NULL,
   sender_id INT UNSIGNED NOT NULL,
   content TEXT NOT NULL,
+  recipient_student_id INT UNSIGNED NULL,
   deleted_at DATETIME NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   INDEX idx_class_messages_thread (teacher_id, created_at, id),
+  INDEX idx_class_messages_recipient (recipient_student_id),
   CONSTRAINT fk_class_messages_teacher FOREIGN KEY (teacher_id) REFERENCES teachers(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -7,6 +7,8 @@ $groups = class_chat_groups($pdo, $actor);
 
 $unreadData = class_chat_get_unread_counts($pdo, $actor);
 $perChannelUnread = $unreadData['per_channel'] ?? [];
+$perGroupUnread = $unreadData['per_group'] ?? [];
+$perDirectUnread = $unreadData['per_direct'] ?? [];
 
 // Pre-fetch latest messages in batch for all teachers
 // 1) Non-broadcast latest message per teacher
@@ -48,6 +50,9 @@ if (!empty($groups)) {
 foreach ($groups as &$group) {
     $group['teacher_id'] = (int)$group['teacher_id'];
     $group['unread_count'] = (int)($perChannelUnread[$group['teacher_id']] ?? 0);
+    $group['group_unread_count'] = (int)($perGroupUnread[$group['teacher_id']] ?? 0);
+    $studentDirects = $perDirectUnread[$group['teacher_id']] ?? [];
+    $group['direct_unread_count'] = array_sum(array_map('intval', $studentDirects));
     
     $latest = ($group['teacher_id'] === 0) 
         ? $latestBroadcast 
